@@ -2,6 +2,10 @@ import { ClerkProvider } from '@clerk/nextjs';
 import "./globals.css";
 import type { Metadata } from "next";
 import Provider from './provider';
+import { Toaster } from '@/components/ui/toast';
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Next.js Premium Startup Boilerplate",
@@ -20,7 +24,7 @@ export default function RootLayout({
   if (!isClerkConfigured) {
     return (
       <html lang="en">
-        <body style={{ margin: 0, padding: 0 }}>
+        <body className={inter.className} style={{ margin: 0, padding: 0 }}>
           {children}
         </body>
       </html>
@@ -30,10 +34,11 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        <body style={{ margin: 0, padding: 0 }}>
+        <body className={inter.className} style={{ margin: 0, padding: 0 }}>
           <Provider>
             {children}
           </Provider>
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>
