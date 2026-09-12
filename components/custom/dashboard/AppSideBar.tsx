@@ -15,6 +15,7 @@ import { Archive, LayoutGrid, Plus, Settings, SparkleIcon, Sparkles, Users } fro
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Progress } from "@/components/ui/progress"
+import CreateNewBoardDialoge from "./CreateNewBoardDialoge"
 
 export function AppSidebar() {
   const path = usePathname();
@@ -30,10 +31,7 @@ export function AppSidebar() {
       </SidebarHeader>
 
       <SidebarGroup >
-            <Button className="w-full justify-start gap-2">
-        <Plus className="w-4 h-4" />
-            Create New Board
-            </Button>
+          <CreateNewBoardDialoge />
       </SidebarGroup>
 
       <SidebarGroup >
@@ -72,10 +70,7 @@ export function AppSidebar() {
       <SidebarContent>
       </SidebarContent>
       <SidebarFooter>
-       <Button className="w-full justify-start gap-2">
-        <Plus className="w-4 h-4" />
-            Create New Board
-            </Button>
+       <CreateNewBoardDialoge/>
             <div className="p-4 my-3 border rounded-md"> 
               <h2 className = "text-sm flex justify-between mb-1">2 files created <span>total 3</span></h2>
             </div>

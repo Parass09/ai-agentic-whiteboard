@@ -1,11 +1,18 @@
-import { integer } from "drizzle-orm/gel-core";
-import { pgTable, serial, text, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, serial, text, timestamp, integer, varchar } from "drizzle-orm/pg-core";
 
 export const users = pgTable("users", {
   id: serial("id").primaryKey(),
   name: text("name"),
   email: text("email").notNull().unique(),
   credits: integer("credits").default(3),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const projects = pgTable("projects", {
+  id: serial("id").primaryKey(),
+  projectId: varchar("projectId").notNull().unique(),
+  projectName: varchar("projectName").notNull(),
+  userEmail: varchar("userEmail").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
