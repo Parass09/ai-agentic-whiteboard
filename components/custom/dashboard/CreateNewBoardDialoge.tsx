@@ -52,9 +52,9 @@ function CreateNewBoardDialoge() {
   return (
 <Dialog open={dialog} onOpenChange={setDialog}>
   <DialogTrigger>
-    <Button className= "w-full"><Plus /> Create New Board
+    <Button className="w-full">
+      <Plus /> Create New Board
     </Button>
-
   </DialogTrigger>
   <DialogContent>
     <DialogHeader>
